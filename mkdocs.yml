@@ -1,0 +1,55 @@
+
+site_name: Machine Learning Tutorials
+
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
+    
+
+
+theme:
+  name: 'material'
+  highlightjs: true
+  hljs_languages: [python]
+  include_homepage_in_sidebar: true
+  prev_next_buttons_location: bottom
+  navigation_depth: 4
+  titles_only: false
+  sticky_navigation: true
+  collapse_navigation: true
+ 
+
+  
+  
+markdown_extensions:
+  - codehilite:
+      linenums: false
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: manni
+      
+
+
+nav:
+- Home: index.md
+- Linear Regression: linear.md
+- Logistic Regression: logistic.md
+- Decision Tree: tree.md
+- Support Vector Machine: svm.md
+- Nearest Neighbours: nnc.md
+- Perceptron: perceptron.md
+- Clustering: clustering.md
+- Neural Network Introduction: intro/intro.md
+- Neural Network-FeatureScaling: feature/feature.md
+- Neural Network-Callbacks: callback/callback.md
+- Neural Network-Tuning: tuning/tuning.md
+- Convolutional Neural Network: cnn/cnn.md
+- LSTM-Introduction: lstm/lstm.md
+ 
+ 
+ 
+ 
