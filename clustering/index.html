@@ -1,0 +1,565 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Clustering - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#clustering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header-nav__button md-logo" aria-label="Machine Learning Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Clustering
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linear/" class="md-nav__link">
+      Linear Regression
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logistic/" class="md-nav__link">
+      Logistic Regression
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tree/" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../svm/" class="md-nav__link">
+      Support Vector Machine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../nnc/" class="md-nav__link">
+      Nearest Neighbours
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../perceptron/" class="md-nav__link">
+      Perceptron
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Clustering
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Clustering
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../intro/intro/" class="md-nav__link">
+      Neural Network Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../feature/feature/" class="md-nav__link">
+      Neural Network-FeatureScaling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../callback/callback/" class="md-nav__link">
+      Neural Network-Callbacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tuning/tuning/" class="md-nav__link">
+      Neural Network-Tuning
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cnn/cnn/" class="md-nav__link">
+      Convolutional Neural Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../lstm/lstm/" class="md-nav__link">
+      LSTM-Introduction
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Clustering</h1>
+                
+                <h3 id="clustering">Clustering:</h3>
+<ul>
+<li>Agglomerative clustering with and without structure (<a href="https://github.com/teachmex/scikit-learn/blob/master/examples/cluster/plot_agglomerative_clustering.py">Source</a>)</li>
+</ul>
+<p>This example shows the effect of imposing a connectivity graph to capture
+local structure in the data. The graph is simply the graph of 20 nearest
+neighbors.
+Two consequences of imposing a connectivity can be seen. First clustering
+with a connectivity matrix is much faster.
+Second, when using a connectivity matrix, single, average and complete
+linkage are unstable and tend to create a few clusters that grow very
+quickly. Indeed, average and complete linkage fight this percolation behavior
+by considering all the distances between two clusters when merging them (
+while single linkage exaggerates the behaviour by considering only the
+shortest distance between clusters). The connectivity graph breaks this
+mechanism for average and complete linkage, making them resemble the more
+brittle single linkage. This effect is more pronounced for very sparse graphs
+(try decreasing the number of neighbors in kneighbors_graph) and with
+complete linkage. In particular, having a very small number of neighbors in
+the graph, imposes a geometry that is close to that of single linkage,
+which is well known to have this percolation instability. """</p>
+<p><code>Authors: Gael Varoquaux, Nelle Varoquaux</code></p>
+<p><code>License: BSD 3 clause</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">time</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.cluster</span> <span style="color: #006699; font-weight: bold">import</span> AgglomerativeClustering
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.neighbors</span> <span style="color: #006699; font-weight: bold">import</span> kneighbors_graph
+
+<span style="color: #0099FF; font-style: italic"># Generate sample data</span>
+n_samples <span style="color: #555555">=</span> <span style="color: #FF6600">1500</span>
+np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>seed(<span style="color: #FF6600">0</span>)
+t <span style="color: #555555">=</span> <span style="color: #FF6600">1.5</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>pi <span style="color: #555555">*</span> (<span style="color: #FF6600">1</span> <span style="color: #555555">+</span> <span style="color: #FF6600">3</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>rand(<span style="color: #FF6600">1</span>, n_samples))
+x <span style="color: #555555">=</span> t <span style="color: #555555">*</span> np<span style="color: #555555">.</span>cos(t)
+y <span style="color: #555555">=</span> t <span style="color: #555555">*</span> np<span style="color: #555555">.</span>sin(t)
+
+
+X <span style="color: #555555">=</span> np<span style="color: #555555">.</span>concatenate((x, y))
+X <span style="color: #555555">+=</span> <span style="color: #555555">.</span><span style="color: #FF6600">7</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>randn(<span style="color: #FF6600">2</span>, n_samples)
+X <span style="color: #555555">=</span> X<span style="color: #555555">.</span>T
+
+<span style="color: #0099FF; font-style: italic"># Create a graph capturing local connectivity. Larger number of neighbors</span>
+<span style="color: #0099FF; font-style: italic"># will give more homogeneous clusters to the cost of computation</span>
+<span style="color: #0099FF; font-style: italic"># time. A very large number of neighbors gives more evenly distributed</span>
+<span style="color: #0099FF; font-style: italic"># cluster sizes, but may not impose the local manifold structure of</span>
+<span style="color: #0099FF; font-style: italic"># the data</span>
+knn_graph <span style="color: #555555">=</span> kneighbors_graph(X, <span style="color: #FF6600">30</span>, include_self<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">False</span>)
+
+<span style="color: #006699; font-weight: bold">for</span> connectivity <span style="color: #000000; font-weight: bold">in</span> (<span style="color: #006699; font-weight: bold">None</span>, knn_graph):
+    <span style="color: #006699; font-weight: bold">for</span> n_clusters <span style="color: #000000; font-weight: bold">in</span> (<span style="color: #FF6600">30</span>, <span style="color: #FF6600">3</span>):
+        plt<span style="color: #555555">.</span>figure(figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">10</span>, <span style="color: #FF6600">4</span>))
+        <span style="color: #006699; font-weight: bold">for</span> index, linkage <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">enumerate</span>((<span style="color: #CC3300">&#39;average&#39;</span>,
+                                         <span style="color: #CC3300">&#39;complete&#39;</span>,
+                                         <span style="color: #CC3300">&#39;ward&#39;</span>,
+                                         <span style="color: #CC3300">&#39;single&#39;</span>)):
+            plt<span style="color: #555555">.</span>subplot(<span style="color: #FF6600">1</span>, <span style="color: #FF6600">4</span>, index <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>)
+            model <span style="color: #555555">=</span> AgglomerativeClustering(linkage<span style="color: #555555">=</span>linkage,
+                                            connectivity<span style="color: #555555">=</span>connectivity,
+                                            n_clusters<span style="color: #555555">=</span>n_clusters)
+            t0 <span style="color: #555555">=</span> time<span style="color: #555555">.</span>time()
+            model<span style="color: #555555">.</span>fit(X)
+            elapsed_time <span style="color: #555555">=</span> time<span style="color: #555555">.</span>time() <span style="color: #555555">-</span> t0
+            plt<span style="color: #555555">.</span>scatter(X[:, <span style="color: #FF6600">0</span>], X[:, <span style="color: #FF6600">1</span>], c<span style="color: #555555">=</span>model<span style="color: #555555">.</span>labels_,
+                        cmap<span style="color: #555555">=</span>plt<span style="color: #555555">.</span>cm<span style="color: #555555">.</span>nipy_spectral)
+            plt<span style="color: #555555">.</span>title(<span style="color: #CC3300">&#39;linkage=</span><span style="color: #AA0000">%s</span><span style="color: #CC3300; font-weight: bold">\n</span><span style="color: #CC3300">(time </span><span style="color: #AA0000">%.2f</span><span style="color: #CC3300">s)&#39;</span> <span style="color: #555555">%</span> (linkage, elapsed_time),
+                      fontdict<span style="color: #555555">=</span><span style="color: #336666">dict</span>(verticalalignment<span style="color: #555555">=</span><span style="color: #CC3300">&#39;top&#39;</span>))
+            plt<span style="color: #555555">.</span>axis(<span style="color: #CC3300">&#39;equal&#39;</span>)
+            plt<span style="color: #555555">.</span>axis(<span style="color: #CC3300">&#39;off&#39;</span>)
+
+            plt<span style="color: #555555">.</span>subplots_adjust(bottom<span style="color: #555555">=</span><span style="color: #FF6600">0</span>, top<span style="color: #555555">=.</span><span style="color: #FF6600">83</span>, wspace<span style="color: #555555">=</span><span style="color: #FF6600">0</span>,
+                                left<span style="color: #555555">=</span><span style="color: #FF6600">0</span>, right<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+            plt<span style="color: #555555">.</span>suptitle(<span style="color: #CC3300">&#39;n_cluster=</span><span style="color: #AA0000">%i</span><span style="color: #CC3300">, connectivity=</span><span style="color: #AA0000">%r</span><span style="color: #CC3300">&#39;</span> <span style="color: #555555">%</span>
+                         (n_clusters, connectivity <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #006699; font-weight: bold">None</span>), size<span style="color: #555555">=</span><span style="color: #FF6600">17</span>)
+
+
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_26_0.png" /></p>
+<p><img alt="png" src="../output_26_1.png" /></p>
+<p><img alt="png" src="../output_26_2.png" /></p>
+<p><img alt="png" src="../output_26_3.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../perceptron/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Perceptron
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../intro/intro/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Neural Network Introduction
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

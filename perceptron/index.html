@@ -1,0 +1,597 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.2">
+    
+    
+      
+        <title>Perceptron - Machine Learning Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#perceptron" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Machine Learning Tutorials" class="md-header-nav__button md-logo" aria-label="Machine Learning Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Machine Learning Tutorials
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Perceptron
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Machine Learning Tutorials" class="md-nav__button md-logo" aria-label="Machine Learning Tutorials">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Machine Learning Tutorials
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../linear/" class="md-nav__link">
+      Linear Regression
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../logistic/" class="md-nav__link">
+      Logistic Regression
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tree/" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../svm/" class="md-nav__link">
+      Support Vector Machine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../nnc/" class="md-nav__link">
+      Nearest Neighbours
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Perceptron
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Perceptron
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#perceptron" class="md-nav__link">
+    Perceptron
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../clustering/" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../intro/intro/" class="md-nav__link">
+      Neural Network Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../feature/feature/" class="md-nav__link">
+      Neural Network-FeatureScaling
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../callback/callback/" class="md-nav__link">
+      Neural Network-Callbacks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tuning/tuning/" class="md-nav__link">
+      Neural Network-Tuning
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../cnn/cnn/" class="md-nav__link">
+      Convolutional Neural Network
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../lstm/lstm/" class="md-nav__link">
+      LSTM-Introduction
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#perceptron" class="md-nav__link">
+    Perceptron
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Perceptron</h1>
+                
+                <h3 id="perceptron">Perceptron</h3>
+<ul>
+<li>Varying regularization in Multi-layer Perceptron (<a href="https://github.com/teachmex/scikit-learn/blob/master/examples/neural_networks/plot_mlp_alpha.py">Source</a>)</li>
+</ul>
+<p>A comparison of different values for regularization parameter 'alpha' on
+synthetic datasets. The plot shows that different alphas yield different
+decision functions.
+Alpha is a parameter for regularization term, aka penalty term, that combats
+overfitting by constraining the size of the weights. Increasing alpha may fix
+high variance (a sign of overfitting) by encouraging smaller weights, resulting
+in a decision boundary plot that appears with lesser curvatures.
+Similarly, decreasing alpha may fix high bias (a sign of underfitting) by
+encouraging larger weights, potentially resulting in a more complicated
+decision boundary.</p>
+<p><code>Author: Issam H. Laradji</code></p>
+<p><code>License: BSD 3 clause</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span></span><code><span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">matplotlib</span> <span style="color: #006699; font-weight: bold">import</span> pyplot <span style="color: #006699; font-weight: bold">as</span> plt
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.colors</span> <span style="color: #006699; font-weight: bold">import</span> ListedColormap
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.model_selection</span> <span style="color: #006699; font-weight: bold">import</span> train_test_split
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.preprocessing</span> <span style="color: #006699; font-weight: bold">import</span> StandardScaler
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.datasets</span> <span style="color: #006699; font-weight: bold">import</span> make_moons, make_circles, make_classification
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.neural_network</span> <span style="color: #006699; font-weight: bold">import</span> MLPClassifier
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.pipeline</span> <span style="color: #006699; font-weight: bold">import</span> make_pipeline
+
+h <span style="color: #555555">=</span> <span style="color: #555555">.</span><span style="color: #FF6600">02</span>  <span style="color: #0099FF; font-style: italic"># step size in the mesh</span>
+
+alphas <span style="color: #555555">=</span> np<span style="color: #555555">.</span>logspace(<span style="color: #555555">-</span><span style="color: #FF6600">5</span>, <span style="color: #FF6600">3</span>, <span style="color: #FF6600">5</span>)
+names <span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;alpha &#39;</span> <span style="color: #555555">+</span> <span style="color: #336666">str</span>(i) <span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> alphas]
+
+classifiers <span style="color: #555555">=</span> []
+<span style="color: #006699; font-weight: bold">for</span> i <span style="color: #000000; font-weight: bold">in</span> alphas:
+    classifiers<span style="color: #555555">.</span>append(make_pipeline(
+                       StandardScaler(),
+                       MLPClassifier(solver<span style="color: #555555">=</span><span style="color: #CC3300">&#39;lbfgs&#39;</span>, alpha<span style="color: #555555">=</span>i,
+                                     random_state<span style="color: #555555">=</span><span style="color: #FF6600">1</span>, max_iter<span style="color: #555555">=</span><span style="color: #FF6600">2000</span>,
+                                     early_stopping<span style="color: #555555">=</span><span style="color: #006699; font-weight: bold">True</span>,
+                                     hidden_layer_sizes<span style="color: #555555">=</span>[<span style="color: #FF6600">100</span>, <span style="color: #FF6600">100</span>])
+                       ))
+
+X, y <span style="color: #555555">=</span> make_classification(n_features<span style="color: #555555">=</span><span style="color: #FF6600">2</span>, n_redundant<span style="color: #555555">=</span><span style="color: #FF6600">0</span>, n_informative<span style="color: #555555">=</span><span style="color: #FF6600">2</span>,
+                           random_state<span style="color: #555555">=</span><span style="color: #FF6600">0</span>, n_clusters_per_class<span style="color: #555555">=</span><span style="color: #FF6600">1</span>)
+rng <span style="color: #555555">=</span> np<span style="color: #555555">.</span>random<span style="color: #555555">.</span>RandomState(<span style="color: #FF6600">2</span>)
+X <span style="color: #555555">+=</span> <span style="color: #FF6600">2</span> <span style="color: #555555">*</span> rng<span style="color: #555555">.</span>uniform(size<span style="color: #555555">=</span>X<span style="color: #555555">.</span>shape)
+linearly_separable <span style="color: #555555">=</span> (X, y)
+
+datasets <span style="color: #555555">=</span> [make_moons(noise<span style="color: #555555">=</span><span style="color: #FF6600">0.3</span>, random_state<span style="color: #555555">=</span><span style="color: #FF6600">0</span>),
+            make_circles(noise<span style="color: #555555">=</span><span style="color: #FF6600">0.2</span>, factor<span style="color: #555555">=</span><span style="color: #FF6600">0.5</span>, random_state<span style="color: #555555">=</span><span style="color: #FF6600">1</span>),
+            linearly_separable]
+
+figure <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>figure(figsize<span style="color: #555555">=</span>(<span style="color: #FF6600">17</span>, <span style="color: #FF6600">9</span>))
+i <span style="color: #555555">=</span> <span style="color: #FF6600">1</span>
+<span style="color: #0099FF; font-style: italic"># iterate over datasets</span>
+<span style="color: #006699; font-weight: bold">for</span> X, y <span style="color: #000000; font-weight: bold">in</span> datasets:
+    <span style="color: #0099FF; font-style: italic"># preprocess dataset, split into training and test part</span>
+    X <span style="color: #555555">=</span> StandardScaler()<span style="color: #555555">.</span>fit_transform(X)
+    X_train, X_test, y_train, y_test <span style="color: #555555">=</span> train_test_split(X, y, test_size<span style="color: #555555">=.</span><span style="color: #FF6600">4</span>)
+
+    x_min, x_max <span style="color: #555555">=</span> X[:, <span style="color: #FF6600">0</span>]<span style="color: #555555">.</span>min() <span style="color: #555555">-</span> <span style="color: #555555">.</span><span style="color: #FF6600">5</span>, X[:, <span style="color: #FF6600">0</span>]<span style="color: #555555">.</span>max() <span style="color: #555555">+</span> <span style="color: #555555">.</span><span style="color: #FF6600">5</span>
+    y_min, y_max <span style="color: #555555">=</span> X[:, <span style="color: #FF6600">1</span>]<span style="color: #555555">.</span>min() <span style="color: #555555">-</span> <span style="color: #555555">.</span><span style="color: #FF6600">5</span>, X[:, <span style="color: #FF6600">1</span>]<span style="color: #555555">.</span>max() <span style="color: #555555">+</span> <span style="color: #555555">.</span><span style="color: #FF6600">5</span>
+    xx, yy <span style="color: #555555">=</span> np<span style="color: #555555">.</span>meshgrid(np<span style="color: #555555">.</span>arange(x_min, x_max, h),
+                         np<span style="color: #555555">.</span>arange(y_min, y_max, h))
+
+    <span style="color: #0099FF; font-style: italic"># just plot the dataset first</span>
+    cm <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>cm<span style="color: #555555">.</span>RdBu
+    cm_bright <span style="color: #555555">=</span> ListedColormap([<span style="color: #CC3300">&#39;#FF0000&#39;</span>, <span style="color: #CC3300">&#39;#0000FF&#39;</span>])
+    ax <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>subplot(<span style="color: #336666">len</span>(datasets), <span style="color: #336666">len</span>(classifiers) <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>, i)
+    <span style="color: #0099FF; font-style: italic"># Plot the training points</span>
+    ax<span style="color: #555555">.</span>scatter(X_train[:, <span style="color: #FF6600">0</span>], X_train[:, <span style="color: #FF6600">1</span>], c<span style="color: #555555">=</span>y_train, cmap<span style="color: #555555">=</span>cm_bright)
+    <span style="color: #0099FF; font-style: italic"># and testing points</span>
+    ax<span style="color: #555555">.</span>scatter(X_test[:, <span style="color: #FF6600">0</span>], X_test[:, <span style="color: #FF6600">1</span>], c<span style="color: #555555">=</span>y_test, cmap<span style="color: #555555">=</span>cm_bright, alpha<span style="color: #555555">=</span><span style="color: #FF6600">0.6</span>)
+    ax<span style="color: #555555">.</span>set_xlim(xx<span style="color: #555555">.</span>min(), xx<span style="color: #555555">.</span>max())
+    ax<span style="color: #555555">.</span>set_ylim(yy<span style="color: #555555">.</span>min(), yy<span style="color: #555555">.</span>max())
+    ax<span style="color: #555555">.</span>set_xticks(())
+    ax<span style="color: #555555">.</span>set_yticks(())
+    i <span style="color: #555555">+=</span> <span style="color: #FF6600">1</span>
+
+    <span style="color: #0099FF; font-style: italic"># iterate over classifiers</span>
+    <span style="color: #006699; font-weight: bold">for</span> name, clf <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(names, classifiers):
+        ax <span style="color: #555555">=</span> plt<span style="color: #555555">.</span>subplot(<span style="color: #336666">len</span>(datasets), <span style="color: #336666">len</span>(classifiers) <span style="color: #555555">+</span> <span style="color: #FF6600">1</span>, i)
+        clf<span style="color: #555555">.</span>fit(X_train, y_train)
+        score <span style="color: #555555">=</span> clf<span style="color: #555555">.</span>score(X_test, y_test)
+
+        <span style="color: #0099FF; font-style: italic"># Plot the decision boundary. For that, we will assign a color to each</span>
+        <span style="color: #0099FF; font-style: italic"># point in the mesh [x_min, x_max]x[y_min, y_max].</span>
+        <span style="color: #006699; font-weight: bold">if</span> <span style="color: #336666">hasattr</span>(clf, <span style="color: #CC3300">&quot;decision_function&quot;</span>):
+            Z <span style="color: #555555">=</span> clf<span style="color: #555555">.</span>decision_function(np<span style="color: #555555">.</span>c_[xx<span style="color: #555555">.</span>ravel(), yy<span style="color: #555555">.</span>ravel()])
+        <span style="color: #006699; font-weight: bold">else</span>:
+            Z <span style="color: #555555">=</span> clf<span style="color: #555555">.</span>predict_proba(np<span style="color: #555555">.</span>c_[xx<span style="color: #555555">.</span>ravel(), yy<span style="color: #555555">.</span>ravel()])[:, <span style="color: #FF6600">1</span>]
+
+        <span style="color: #0099FF; font-style: italic"># Put the result into a color plot</span>
+        Z <span style="color: #555555">=</span> Z<span style="color: #555555">.</span>reshape(xx<span style="color: #555555">.</span>shape)
+        ax<span style="color: #555555">.</span>contourf(xx, yy, Z, cmap<span style="color: #555555">=</span>cm, alpha<span style="color: #555555">=.</span><span style="color: #FF6600">8</span>)
+
+        <span style="color: #0099FF; font-style: italic"># Plot also the training points</span>
+        ax<span style="color: #555555">.</span>scatter(X_train[:, <span style="color: #FF6600">0</span>], X_train[:, <span style="color: #FF6600">1</span>], c<span style="color: #555555">=</span>y_train, cmap<span style="color: #555555">=</span>cm_bright,
+                   edgecolors<span style="color: #555555">=</span><span style="color: #CC3300">&#39;black&#39;</span>, s<span style="color: #555555">=</span><span style="color: #FF6600">25</span>)
+        <span style="color: #0099FF; font-style: italic"># and testing points</span>
+        ax<span style="color: #555555">.</span>scatter(X_test[:, <span style="color: #FF6600">0</span>], X_test[:, <span style="color: #FF6600">1</span>], c<span style="color: #555555">=</span>y_test, cmap<span style="color: #555555">=</span>cm_bright,
+                   alpha<span style="color: #555555">=</span><span style="color: #FF6600">0.6</span>, edgecolors<span style="color: #555555">=</span><span style="color: #CC3300">&#39;black&#39;</span>, s<span style="color: #555555">=</span><span style="color: #FF6600">25</span>)
+
+        ax<span style="color: #555555">.</span>set_xlim(xx<span style="color: #555555">.</span>min(), xx<span style="color: #555555">.</span>max())
+        ax<span style="color: #555555">.</span>set_ylim(yy<span style="color: #555555">.</span>min(), yy<span style="color: #555555">.</span>max())
+        ax<span style="color: #555555">.</span>set_xticks(())
+        ax<span style="color: #555555">.</span>set_yticks(())
+        ax<span style="color: #555555">.</span>set_title(name)
+        ax<span style="color: #555555">.</span>text(xx<span style="color: #555555">.</span>max() <span style="color: #555555">-</span> <span style="color: #555555">.</span><span style="color: #FF6600">3</span>, yy<span style="color: #555555">.</span>min() <span style="color: #555555">+</span> <span style="color: #555555">.</span><span style="color: #FF6600">3</span>, (<span style="color: #CC3300">&#39;</span><span style="color: #AA0000">%.2f</span><span style="color: #CC3300">&#39;</span> <span style="color: #555555">%</span> score)<span style="color: #555555">.</span>lstrip(<span style="color: #CC3300">&#39;0&#39;</span>),
+                size<span style="color: #555555">=</span><span style="color: #FF6600">15</span>, horizontalalignment<span style="color: #555555">=</span><span style="color: #CC3300">&#39;right&#39;</span>)
+        i <span style="color: #555555">+=</span> <span style="color: #FF6600">1</span>
+
+figure<span style="color: #555555">.</span>subplots_adjust(left<span style="color: #555555">=.</span><span style="color: #FF6600">02</span>, right<span style="color: #555555">=.</span><span style="color: #FF6600">98</span>)
+plt<span style="color: #555555">.</span>show()
+</code></pre></div>
+
+
+<p><img alt="png" src="../output_24_0.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../nnc/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Nearest Neighbours
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../clustering/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Clustering
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.9554a270.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
