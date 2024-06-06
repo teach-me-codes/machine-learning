@@ -1,14 +1,16 @@
-
-site_name: Machine Learning Tutorials
-
+site_name: Machine Learning
 
 extra_javascript: 
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
-    - mdx_math
-    
-
+  - pymdownx.arithmatex
+  - codehilite:
+      linenums: false
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: manni
 
 theme:
   name: 'material'
@@ -20,41 +22,33 @@ theme:
   titles_only: false
   sticky_navigation: true
   collapse_navigation: true
- 
-
-  
-  
-markdown_extensions:
-  - codehilite:
-      linenums: false
-      guess_lang: false
-      use_pygments: true
-      noclasses: true
-      pygments_style: manni
 
 extra:
   analytics:
     provider: google
     property: UA-156178967-1
-      
+
 
 
 nav:
 - Home: index.md
-- Linear Regression: linear.md
-- Logistic Regression: logistic.md
-- Decision Tree: tree.md
-- Support Vector Machine: svm.md
-- Nearest Neighbours: nnc.md
-- Perceptron: perceptron.md
-- Clustering: clustering.md
-- Neural Network Introduction: intro/intro.md
-- Neural Network-FeatureScaling: feature/feature.md
-- Neural Network-Callbacks: callback/callback.md
-- Neural Network-Tuning: tuning/tuning.md
-- Convolutional Neural Network: cnn/cnn.md
-- LSTM-Introduction: lstm/lstm.md
- 
- 
- 
- 
+- Linear Regression: linear_regression.md
+- Logistic Regression: logistic_regression.md
+- Support Vector Machine: support_vector_machine.md
+- Decision Tree: decision_tree.md
+- K-Nearest Neighbors: k-nearest_neighbors.md
+- Random Forest: random_forest.md
+- Gradient Boosting: gradient_boosting.md
+- Naive Bayes: naive_bayes.md
+- Principal Component Analysis: principal_component_analysis.md
+- K-Means Clustering: k-means_clustering.md
+- Dimensionality Reduction: dimensionality_reduction.md
+- Ensemble Learning: ensemble_learning.md
+- Feature Engineering: feature_engineering.md
+- Overfitting: overfitting.md
+- Underfitting: underfitting.md
+- Cross-Validation: cross-validation.md
+- Bias-Variance Tradeoff: bias-variance_tradeoff.md
+- Feature Selection: feature_selection.md
+- Regularization: regularization.md
+
