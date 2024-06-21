@@ -6,7 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A comprehensive guide to learning Machine Learning">
       
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/logistic_regression/">
       
       
         <link rel="prev" href="../linear_regression/">
@@ -15,16 +21,19 @@
         <link rel="next" href="../support_vector_machine/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Logistic Regression - Machine Learning</title>
+        <title>Logistic Regression - Learning Machine Learning</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +61,9 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-156178967-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-156178967-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-156178967-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -63,7 +72,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -88,10 +104,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+    <a href=".." title="Learning Machine Learning" class="md-header__button md-logo" aria-label="Learning Machine Learning" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +117,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Machine Learning
+            Learning Machine Learning
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -114,6 +129,42 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -137,11 +188,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -157,6 +215,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/machine-learning" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -183,14 +253,25 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+    <a href=".." title="Learning Machine Learning" class="md-nav__button md-logo" aria-label="Learning Machine Learning" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
-    Machine Learning
+    Learning Machine Learning
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/machine-learning" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -636,6 +717,22 @@
                 
                   
 
+  
+    <a href="https://github.com/teach-me-codes/machine-learning/edit/master/docs/logistic_regression.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/machine-learning/raw/master/docs/logistic_regression.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
 
 <h1 id="question">Question</h1>
 <p><strong>Main question</strong>: What is Logistic Regression in the context of machine learning?</p>
@@ -656,22 +753,19 @@
 <h3 id="logistic-regression-in-the-context-of-machine-learning">Logistic Regression in the context of machine learning</h3>
 <p>Logistic Regression is a statistical model widely used in machine learning for binary classification tasks. It is utilized to estimate the probability that an instance belongs to a particular class, especially in scenarios where the outcome is categorical. The model predicts the probability using a logistic function, also known as the sigmoid function, which maps any real-valued number into a range between 0 and 1.</p>
 <p>The hypothesis function for Logistic Regression is defined as:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview"> h_\theta(x) = \frac{1}{1 + e^{-(\theta^Tx)}} </div>
-<script type="math/tex; mode=display"> h_\theta(x) = \frac{1}{1 + e^{-(\theta^Tx)}} </script>
-</div>
+<div class="arithmatex">\[ h_\theta(x) = \frac{1}{1 + e^{-(\theta^Tx)}} \]</div>
 <p>where:
-- <span class="arithmatex"><span class="MathJax_Preview"> h_\theta(x) </span><script type="math/tex"> h_\theta(x) </script></span> is the predicted probability that the input <span class="arithmatex"><span class="MathJax_Preview"> x </span><script type="math/tex"> x </script></span> belongs to a specific class
-- <span class="arithmatex"><span class="MathJax_Preview"> \theta </span><script type="math/tex"> \theta </script></span> represents the model parameters
-- <span class="arithmatex"><span class="MathJax_Preview"> x </span><script type="math/tex"> x </script></span> denotes the input features</p>
-<p>The model is trained by optimizing the parameters <span class="arithmatex"><span class="MathJax_Preview"> \theta </span><script type="math/tex"> \theta </script></span> to minimize a cost function, usually the log loss or cross-entropy loss, through methods like gradient descent or other optimization algorithms.</p>
+- <span class="arithmatex">\( h_\theta(x) \)</span> is the predicted probability that the input <span class="arithmatex">\( x \)</span> belongs to a specific class
+- <span class="arithmatex">\( \theta \)</span> represents the model parameters
+- <span class="arithmatex">\( x \)</span> denotes the input features</p>
+<p>The model is trained by optimizing the parameters <span class="arithmatex">\( \theta \)</span> to minimize a cost function, usually the log loss or cross-entropy loss, through methods like gradient descent or other optimization algorithms.</p>
 <h3 id="follow-up-questions">Follow-up questions</h3>
 <ul>
 <li><strong>Can you explain the logistic function or sigmoid function used in Logistic Regression?</strong></li>
 </ul>
 <p>The logistic function or sigmoid function is the core of Logistic Regression. It is defined as:</p>
 <p>$$ \sigma(z) = \frac{1}{1 + e^{-z}} $$</p>
-<p>where <span class="arithmatex"><span class="MathJax_Preview"> z = \theta^Tx </span><script type="math/tex"> z = \theta^Tx </script></span> is the linear combination of input features and model parameters. The sigmoid function maps any real-valued number to a range between 0 and 1, making it suitable for predicting probabilities in binary classification tasks.</p>
+<p>where <span class="arithmatex">\( z = \theta^Tx \)</span> is the linear combination of input features and model parameters. The sigmoid function maps any real-valued number to a range between 0 and 1, making it suitable for predicting probabilities in binary classification tasks.</p>
 <ul>
 <li>
 <p><strong>How does Logistic Regression differ from linear regression when dealing with binary outcomes?</strong></p>
@@ -716,22 +810,19 @@
 </ol>
 <h1 id="answer_1">Answer</h1>
 <h3 id="how-to-interpret-the-coefficients-in-a-logistic-regression-model">How to Interpret the Coefficients in a Logistic Regression Model</h3>
-<p>In a Logistic Regression model, the coefficients represent the relationship between the independent variables and the log-odds of the target class. The logistic function is used to convert this relationship into probabilities. Mathematically, the probability <span class="arithmatex"><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> that an instance belongs to a particular class can be expressed as:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview"> P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n)}} </div>
-<script type="math/tex; mode=display"> P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n)}} </script>
-</div>
+<p>In a Logistic Regression model, the coefficients represent the relationship between the independent variables and the log-odds of the target class. The logistic function is used to convert this relationship into probabilities. Mathematically, the probability <span class="arithmatex">\(P\)</span> that an instance belongs to a particular class can be expressed as:</p>
+<div class="arithmatex">\[ P(y=1 | x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n)}} \]</div>
 <p>Where:
-- <span class="arithmatex"><span class="MathJax_Preview">P(y=1 | x)</span><script type="math/tex">P(y=1 | x)</script></span> is the probability of the target class being 1 given the input features <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.
-- <span class="arithmatex"><span class="MathJax_Preview">\beta_0, \beta_1, ..., \beta_n</span><script type="math/tex">\beta_0, \beta_1, ..., \beta_n</script></span> are the coefficients of the model.
-- <span class="arithmatex"><span class="MathJax_Preview">x_1, x_2, ..., x_n</span><script type="math/tex">x_1, x_2, ..., x_n</script></span> are the input features.</p>
+- <span class="arithmatex">\(P(y=1 | x)\)</span> is the probability of the target class being 1 given the input features <span class="arithmatex">\(x\)</span>.
+- <span class="arithmatex">\(\beta_0, \beta_1, ..., \beta_n\)</span> are the coefficients of the model.
+- <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span> are the input features.</p>
 <p>The interpretation of the coefficients is as follows:</p>
 <ul>
 <li>
-<p><strong>Positive Coefficients</strong>: A positive coefficient <span class="arithmatex"><span class="MathJax_Preview">\beta_i</span><script type="math/tex">\beta_i</script></span> means that an increase in the feature <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> will lead to an increase in the log-odds of the target class, hence increasing the probability of the target class.</p>
+<p><strong>Positive Coefficients</strong>: A positive coefficient <span class="arithmatex">\(\beta_i\)</span> means that an increase in the feature <span class="arithmatex">\(x_i\)</span> will lead to an increase in the log-odds of the target class, hence increasing the probability of the target class.</p>
 </li>
 <li>
-<p><strong>Negative Coefficients</strong>: Conversely, a negative coefficient <span class="arithmatex"><span class="MathJax_Preview">\beta_i</span><script type="math/tex">\beta_i</script></span> implies that an increase in the feature <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> will lead to a decrease in the log-odds of the target class, resulting in a lower probability of the target class.</p>
+<p><strong>Negative Coefficients</strong>: Conversely, a negative coefficient <span class="arithmatex">\(\beta_i\)</span> implies that an increase in the feature <span class="arithmatex">\(x_i\)</span> will lead to a decrease in the log-odds of the target class, resulting in a lower probability of the target class.</p>
 </li>
 <li>
 <p><strong>Magnitude of Coefficients</strong>: The magnitude of the coefficients indicates the strength of the relationship between the feature and the target class. Larger coefficients have a more significant impact on changing the odds of the target class.</p>
@@ -798,22 +889,22 @@
 <ul>
 <li><strong>Accuracy</strong> is the most straightforward metric and represents the proportion of correct predictions made by the model out of all predictions.</li>
 </ul>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Accuracy = \frac{TP + TN}{TP + TN + FP + FN}</span><script type="math/tex">Accuracy = \frac{TP + TN}{TP + TN + FP + FN}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Accuracy = \frac{TP + TN}{TP + TN + FP + FN}</span><script type="math/tex">Accuracy = \frac{TP + TN}{TP + TN + FP + FN}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Accuracy = \frac{TP + TN}{TP + TN + FP + FN}\)</span>\)</span></p>
 <h3 id="2-precision">2. Precision</h3>
 <ul>
 <li><strong>Precision</strong> quantifies the number of true positive predictions made by the model divided by the total number of positive predictions made.</li>
 </ul>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Precision = \frac{TP}{TP + FP}</span><script type="math/tex">Precision = \frac{TP}{TP + FP}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Precision = \frac{TP}{TP + FP}</span><script type="math/tex">Precision = \frac{TP}{TP + FP}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Precision = \frac{TP}{TP + FP}\)</span>\)</span></p>
 <h3 id="3-recall-sensitivity">3. Recall (Sensitivity)</h3>
 <ul>
 <li><strong>Recall</strong>, also known as sensitivity or true positive rate, measures the proportion of actual positives that were correctly predicted by the model.</li>
 </ul>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Recall = \frac{TP}{TP + FN}</span><script type="math/tex">Recall = \frac{TP}{TP + FN}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Recall = \frac{TP}{TP + FN}</span><script type="math/tex">Recall = \frac{TP}{TP + FN}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Recall = \frac{TP}{TP + FN}\)</span>\)</span></p>
 <h3 id="4-f1-score">4. F1 Score</h3>
 <ul>
 <li><strong>F1 score</strong> is the harmonic mean of precision and recall. It provides a balance between precision and recall, especially when the classes are imbalanced.</li>
 </ul>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}</span><script type="math/tex">F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}</span><script type="math/tex">F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(F1 Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}\)</span>\)</span></p>
 <h3 id="5-area-under-the-roc-curve-auc-roc">5. Area Under the ROC Curve (AUC-ROC)</h3>
 <ul>
 <li><strong>AUC-ROC</strong> represents the area under the Receiver Operating Characteristic (ROC) curve. The ROC curve plots the true positive rate against the false positive rate at various threshold settings. A higher AUC indicates a better model performance.</li>
@@ -856,15 +947,9 @@
 <p>Both L1 and L2 regularization can be applied by including a regularization term in the cost function of Logistic Regression:</p>
 </li>
 </ul>
-<div class="arithmatex">
-<div class="MathJax_Preview">\text{Cost function with L1 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m |w_j|</div>
-<script type="math/tex; mode=display">\text{Cost function with L1 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m |w_j|</script>
-</div>
-<div class="arithmatex">
-<div class="MathJax_Preview">\text{Cost function with L2 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m w_j^2</div>
-<script type="math/tex; mode=display">\text{Cost function with L2 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m w_j^2</script>
-</div>
-<p>where <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> is the inverse regularization strength, <span class="arithmatex"><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> is the regularization parameter, and <span class="arithmatex"><span class="MathJax_Preview">w_j</span><script type="math/tex">w_j</script></span> are the coefficients.</p>
+<div class="arithmatex">\[\text{Cost function with L1 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m |w_j|\]</div>
+<div class="arithmatex">\[\text{Cost function with L2 regularization:} J(w) = C \sum_{i=1}^n (-y_i \log(\hat{y}_i) - (1-y_i)\log(1-\hat{y}_i)) + \lambda \sum_{j=1}^m w_j^2\]</div>
+<p>where <span class="arithmatex">\(C\)</span> is the inverse regularization strength, <span class="arithmatex">\(\lambda\)</span> is the regularization parameter, and <span class="arithmatex">\(w_j\)</span> are the coefficients.</p>
 </li>
 <li>
 <p><strong>Cross-Validation:</strong> Another approach to tackle overfitting is by using cross-validation techniques like k-fold cross-validation to tune hyperparameters and evaluate model performance on multiple validation sets.</p>
@@ -1003,22 +1088,21 @@
 </ol>
 <p>In conclusion, feature selection plays a crucial role in optimizing the performance of a logistic regression model by enhancing model interpretability, reducing overfitting, and improving generalization to unseen data.</p>
 <h3 id="code-snippet-for-recursive-feature-elimination-rfe-in-python">Code Snippet for Recursive Feature Elimination (RFE) in Python:</h3>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.feature_selection</span> <span style="color: #006699; font-weight: bold">import</span> RFE
-<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.linear_model</span> <span style="color: #006699; font-weight: bold">import</span> LogisticRegression
-
-<span style="color: #0099FF; font-style: italic"># Initialize Logistic Regression model</span>
-model <span style="color: #555555">=</span> LogisticRegression()
-
-<span style="color: #0099FF; font-style: italic"># Initialize RFE with the model and number of features to select</span>
-rfe <span style="color: #555555">=</span> RFE(model, n_features_to_select<span style="color: #555555">=</span><span style="color: #FF6600">5</span>)
-
-<span style="color: #0099FF; font-style: italic"># Fit RFE on the dataset</span>
-rfe<span style="color: #555555">.</span>fit(X_train, y_train)
-
-<span style="color: #0099FF; font-style: italic"># Selected features</span>
-selected_features <span style="color: #555555">=</span> X_train<span style="color: #555555">.</span>columns[rfe<span style="color: #555555">.</span>support_]
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Initialize Logistic Regression model</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Initialize RFE with the model and number of features to select</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">rfe</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Fit RFE on the dataset</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">rfe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Selected features</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">selected_features</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">rfe</span><span class="o">.</span><span class="n">support_</span><span class="p">]</span>
+</span></code></pre></div>
 <h1 id="question_7">Question</h1>
 <p><strong>Explanation</strong>: The interviewee should discuss the significance of the intercept term in Logistic Regression and how it influences the model.</p>
 <h1 id="answer_9">Answer</h1>
@@ -1027,14 +1111,11 @@ selected_features <span style="color: #555555">=</span> X_train<span style="colo
 <ul>
 <li>The logistic regression model predicts the probability that a given input instance belongs to a particular class (often denoted as class 1). This probability is estimated using the logistic function, which maps the linear combination of input features to a value between 0 and 1.</li>
 <li>The intercept term accounts for the baseline probability of the event occurring when all input features are zero. It shifts the decision boundary away from the origin and allows the model to capture scenarios where the relationship between the input features and the log-odds of the event is not strictly through the origin.</li>
-<li>Mathematically, the logistic regression prediction for an instance <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> with feature values <span class="arithmatex"><span class="MathJax_Preview">x_1, x_2, ..., x_n</span><script type="math/tex">x_1, x_2, ..., x_n</script></span> is given by:</li>
+<li>Mathematically, the logistic regression prediction for an instance <span class="arithmatex">\(x\)</span> with feature values <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span> is given by:</li>
 </ul>
-<div class="arithmatex">
-<div class="MathJax_Preview"> P(y=1 | x) = \frac{1}{1 + e^{-(w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n)}} </div>
-<script type="math/tex; mode=display"> P(y=1 | x) = \frac{1}{1 + e^{-(w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n)}} </script>
-</div>
+<div class="arithmatex">\[ P(y=1 | x) = \frac{1}{1 + e^{-(w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n)}} \]</div>
 <ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">w_0</span><script type="math/tex">w_0</script></span> represents the intercept term, which controls the bias of the model. A positive <span class="arithmatex"><span class="MathJax_Preview">w_0</span><script type="math/tex">w_0</script></span> shifts the decision boundary towards higher probability outcomes, while a negative <span class="arithmatex"><span class="MathJax_Preview">w_0</span><script type="math/tex">w_0</script></span> shifts it towards lower probability outcomes.</li>
+<li><span class="arithmatex">\(w_0\)</span> represents the intercept term, which controls the bias of the model. A positive <span class="arithmatex">\(w_0\)</span> shifts the decision boundary towards higher probability outcomes, while a negative <span class="arithmatex">\(w_0\)</span> shifts it towards lower probability outcomes.</li>
 <li>Removing the intercept term from the logistic regression model forces the decision boundary to pass through the origin, assuming that the event of interest is unlikely when all features are zero. This may not be suitable for datasets where the event can occur even with zero feature values.</li>
 <li>Forcing the intercept to zero in certain logistic regression applications implies that the model assumes a baseline probability of zero for the event when all input features are zero. This may be appropriate in situations where the absence of all features guarantees the absence of the outcome.</li>
 </ul>
@@ -1064,13 +1145,13 @@ selected_features <span style="color: #555555">=</span> X_train<span style="colo
 <ol>
 <li><strong>Include Interaction Terms:</strong></li>
 <li>
-<p>To incorporate interaction effects in logistic regression, we introduce interaction terms by multiplying the relevant variables. For example, if we have variables <span class="arithmatex"><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span> and <span class="arithmatex"><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span>, an interaction term can be defined as <span class="arithmatex"><span class="MathJax_Preview">x_1 \cdot x_2</span><script type="math/tex">x_1 \cdot x_2</script></span>. This expands the model to consider how the effect of <span class="arithmatex"><span class="MathJax_Preview">x_1</span><script type="math/tex">x_1</script></span> on the outcome depends on the value of <span class="arithmatex"><span class="MathJax_Preview">x_2</span><script type="math/tex">x_2</script></span>.</p>
+<p>To incorporate interaction effects in logistic regression, we introduce interaction terms by multiplying the relevant variables. For example, if we have variables <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span>, an interaction term can be defined as <span class="arithmatex">\(x_1 \cdot x_2\)</span>. This expands the model to consider how the effect of <span class="arithmatex">\(x_1\)</span> on the outcome depends on the value of <span class="arithmatex">\(x_2\)</span>.</p>
 </li>
 <li>
 <p><strong>Higher-order Interactions:</strong></p>
 </li>
 <li>
-<p>In some cases, interactions may involve more than two variables. Including higher-order interaction terms like <span class="arithmatex"><span class="MathJax_Preview">x_1 \cdot x_2 \cdot x_3</span><script type="math/tex">x_1 \cdot x_2 \cdot x_3</script></span> allows the model to capture more complex relationships among the variables.</p>
+<p>In some cases, interactions may involve more than two variables. Including higher-order interaction terms like <span class="arithmatex">\(x_1 \cdot x_2 \cdot x_3\)</span> allows the model to capture more complex relationships among the variables.</p>
 </li>
 <li>
 <p><strong>Regularization:</strong></p>
@@ -1171,9 +1252,55 @@ selected_features <span style="color: #555555">=</span> X_train<span style="colo
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../linear_regression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linear Regression">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Linear Regression
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../support_vector_machine/" class="md-footer__link md-footer__link--next" aria-label="Next: Support Vector Machine">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Support Vector Machine
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1183,6 +1310,65 @@ selected_features <span style="color: #555555">=</span> X_train<span style="colo
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
     </a>
   
 </div>
@@ -1197,12 +1383,88 @@ selected_features <span style="color: #555555">=</span> X_train<span style="colo
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -6,7 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A comprehensive guide to learning Machine Learning">
       
+      
+        <meta name="author" content="Teach Me Codes">
+      
+      
+        <link rel="canonical" href="https://learning.teachme.codes/naive_bayes/">
       
       
         <link rel="prev" href="../gradient_boosting/">
@@ -15,16 +21,19 @@
         <link rel="next" href="../principal_component_analysis/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
-        <title>Naive Bayes - Machine Learning</title>
+        <title>Naive Bayes - Learning Machine Learning</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -52,9 +61,9 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","UA-156178967-1"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","UA-156178967-1",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=UA-156178967-1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ECS7B3X8JM"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ECS7B3X8JM",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ECS7B3X8JM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
   
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
   
 
     
@@ -63,7 +72,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -88,10 +104,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+    <a href=".." title="Learning Machine Learning" class="md-header__button md-logo" aria-label="Learning Machine Learning" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +117,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Machine Learning
+            Learning Machine Learning
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -114,6 +129,42 @@
         </div>
       </div>
     </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
     
     
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -137,11 +188,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -157,6 +215,18 @@
   </div>
 </div>
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/teach-me-codes/machine-learning" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -183,14 +253,25 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+    <a href=".." title="Learning Machine Learning" class="md-nav__button md-logo" aria-label="Learning Machine Learning" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="../assets/logo.png" alt="logo">
 
     </a>
-    Machine Learning
+    Learning Machine Learning
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/teach-me-codes/machine-learning" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -636,6 +717,22 @@
                 
                   
 
+  
+    <a href="https://github.com/teach-me-codes/machine-learning/edit/master/docs/naive_bayes.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/teach-me-codes/machine-learning/raw/master/docs/naive_bayes.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
 
 <h1 id="question">Question</h1>
 <p><strong>Main question</strong>: What is Naive Bayes and how does it work?</p>
@@ -655,21 +752,18 @@
 <h1 id="answer">Answer</h1>
 <h3 id="main-question-what-is-naive-bayes-and-how-does-it-work">Main question: What is Naive Bayes and how does it work?</h3>
 <p>Naive Bayes is a probabilistic classifier based on Bayes' theorem with a naive assumption of feature independence, making it particularly effective for text classification problems. The classifier assumes that the presence of a particular feature in a class is independent of the presence of any other feature, given the class label.</p>
-<p>Mathematically, Naive Bayes calculates the probability of a class given an input feature vector <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> using Bayes' theorem:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview">P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)}</div>
-<script type="math/tex; mode=display">P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)}</script>
-</div>
+<p>Mathematically, Naive Bayes calculates the probability of a class given an input feature vector <span class="arithmatex">\(x\)</span> using Bayes' theorem:</p>
+<div class="arithmatex">\[P(y|x) = \frac{P(x|y) \cdot P(y)}{P(x)}\]</div>
 <p>Where:
-- <span class="arithmatex"><span class="MathJax_Preview">P(y|x)</span><script type="math/tex">P(y|x)</script></span> is the posterior probability of class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> given features <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.
-- <span class="arithmatex"><span class="MathJax_Preview">P(x|y)</span><script type="math/tex">P(x|y)</script></span> is the likelihood of features <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> given class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>.
-- <span class="arithmatex"><span class="MathJax_Preview">P(y)</span><script type="math/tex">P(y)</script></span> is the prior probability of class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>.
-- <span class="arithmatex"><span class="MathJax_Preview">P(x)</span><script type="math/tex">P(x)</script></span> is the probability of features <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>.</p>
+- <span class="arithmatex">\(P(y|x)\)</span> is the posterior probability of class <span class="arithmatex">\(y\)</span> given features <span class="arithmatex">\(x\)</span>.
+- <span class="arithmatex">\(P(x|y)\)</span> is the likelihood of features <span class="arithmatex">\(x\)</span> given class <span class="arithmatex">\(y\)</span>.
+- <span class="arithmatex">\(P(y)\)</span> is the prior probability of class <span class="arithmatex">\(y\)</span>.
+- <span class="arithmatex">\(P(x)\)</span> is the probability of features <span class="arithmatex">\(x\)</span>.</p>
 <p>The classifier selects the class with the highest posterior probability as the prediction.</p>
 <p>The steps to classify a new data point using Naive Bayes are as follows:
-1. Calculate the prior probability <span class="arithmatex"><span class="MathJax_Preview">P(y)</span><script type="math/tex">P(y)</script></span> for each class based on the training data.
-2. Calculate the likelihood <span class="arithmatex"><span class="MathJax_Preview">P(x|y)</span><script type="math/tex">P(x|y)</script></span> for each feature given the class based on the training data.
-3. Compute the posterior probability <span class="arithmatex"><span class="MathJax_Preview">P(y|x)</span><script type="math/tex">P(y|x)</script></span> for each class using Bayes' theorem.
+1. Calculate the prior probability <span class="arithmatex">\(P(y)\)</span> for each class based on the training data.
+2. Calculate the likelihood <span class="arithmatex">\(P(x|y)\)</span> for each feature given the class based on the training data.
+3. Compute the posterior probability <span class="arithmatex">\(P(y|x)\)</span> for each class using Bayes' theorem.
 4. Select the class with the highest posterior probability as the predicted class.</p>
 <h3 id="follow-up-questions">Follow-up questions:</h3>
 <ul>
@@ -718,10 +812,7 @@
 <h3 id="feature-independence-assumption">Feature Independence Assumption:</h3>
 <p>Naive Bayes simplifies the calculation of probabilities by assuming that the features (words) are conditionally independent given the class label. This assumption greatly reduces the computational complexity of the model and makes it tractable even with high-dimensional data. Despite this "naive" assumption, Naive Bayes often performs well in practice, especially in text classification tasks.</p>
 <p>The formula for Naive Bayes classifier can be represented as:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview"> P(y \,|\, x_1, x_2, ..., x_n) = \frac{P(y) \prod_{i=1}^{n} P(x_i \,|\, y)}{P(x_1, x_2, ..., x_n)} </div>
-<script type="math/tex; mode=display"> P(y \,|\, x_1, x_2, ..., x_n) = \frac{P(y) \prod_{i=1}^{n} P(x_i \,|\, y)}{P(x_1, x_2, ..., x_n)} </script>
-</div>
+<div class="arithmatex">\[ P(y \,|\, x_1, x_2, ..., x_n) = \frac{P(y) \prod_{i=1}^{n} P(x_i \,|\, y)}{P(x_1, x_2, ..., x_n)} \]</div>
 <p>Where:
 - $$ P(y \,|\, x_1, x_2, ..., x_n) $$ is the probability of class y given features $$ x_1, x_2, ..., x_n $$
 - $$ P(y) $$ is the prior probability of class y
@@ -743,22 +834,21 @@
 <ul>
 <li><strong>Smoothing Techniques:</strong> Laplace (add-one) smoothing or Lidstone smoothing can be used to handle unseen words in the vocabulary.</li>
 </ul>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code><span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.feature_extraction.text</span> <span style="color: #006699; font-weight: bold">import</span> CountVectorizer
-<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">sklearn.naive_bayes</span> <span style="color: #006699; font-weight: bold">import</span> MultinomialNB
-
-<span style="color: #0099FF; font-style: italic"># Example of preprocessing and using Naive Bayes</span>
-text_samples <span style="color: #555555">=</span> [<span style="color: #CC3300">&quot;This is a text example.&quot;</span>, <span style="color: #CC3300">&quot;Another example of text.&quot;</span>]
-labels <span style="color: #555555">=</span> [<span style="color: #FF6600">0</span>, <span style="color: #FF6600">1</span>]  <span style="color: #0099FF; font-style: italic"># Binary classes</span>
-
-<span style="color: #0099FF; font-style: italic"># Text preprocessing</span>
-vectorizer <span style="color: #555555">=</span> CountVectorizer()
-X <span style="color: #555555">=</span> vectorizer<span style="color: #555555">.</span>fit_transform(text_samples)
-
-<span style="color: #0099FF; font-style: italic"># Train Naive Bayes classifier</span>
-nb_classifier <span style="color: #555555">=</span> MultinomialNB()
-nb_classifier<span style="color: #555555">.</span>fit(X, labels)
-</code></pre></div>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Example of preprocessing and using Naive Bayes</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">text_samples</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;This is a text example.&quot;</span><span class="p">,</span> <span class="s2">&quot;Another example of text.&quot;</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Binary classes</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Text preprocessing</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">text_samples</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Train Naive Bayes classifier</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">nb_classifier</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">nb_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</span></code></pre></div>
 <p>In conclusion, Naive Bayes' simplicity and ability to handle high-dimensional, sparse, and text data with the feature independence assumption make it a popular choice for text classification tasks.</p>
 <h1 id="question_2">Question</h1>
 <p><strong>Main question</strong>: What are the different types of Naive Bayes classifiers?</p>
@@ -783,19 +873,19 @@ nb_classifier<span style="color: #555555">.</span>fit(X, labels)
 <li>Assumes that continuous features follow a Gaussian distribution. It is suitable for data that can be well-modeled using normal distribution, such as sensor data or physical measurements.</li>
 </ol>
 <p>The probability density function for Gaussian Naive Bayes is:
-   <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}\right)</span><script type="math/tex">P(x_i | y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}\right)</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}\right)</span><script type="math/tex">P(x_i | y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}\right)</script></span></script></span></p>
+   <span class="arithmatex">\(<span class="arithmatex">\(P(x_i | y) = \frac{1}{\sqrt{2\pi\sigma_y^2}} \exp\left(-\frac{(x_i - \mu_y)^2}{2\sigma_y^2}\right)\)</span>\)</span></p>
 <ol>
 <li><strong>Multinomial Naive Bayes:</strong></li>
 <li>Designed for features that describe discrete frequency counts (e.g., word counts for text classification). It is commonly used in natural language processing tasks.</li>
 </ol>
 <p>The probability distribution for Multinomial Naive Bayes is based on the multinomial distribution:
-   <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = \frac{N_{yi} + \alpha}{N_y + \alpha n}</span><script type="math/tex">P(x_i | y) = \frac{N_{yi} + \alpha}{N_y + \alpha n}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = \frac{N_{yi} + \alpha}{N_y + \alpha n}</span><script type="math/tex">P(x_i | y) = \frac{N_{yi} + \alpha}{N_y + \alpha n}</script></span></script></span></p>
+   <span class="arithmatex">\(<span class="arithmatex">\(P(x_i | y) = \frac{N_{yi} + \alpha}{N_y + \alpha n}\)</span>\)</span></p>
 <ol>
 <li><strong>Bernoulli Naive Bayes:</strong></li>
 <li>Suitable for binary feature classification tasks where features are present or absent. It models each feature as a binary random variable.</li>
 </ol>
 <p>The probability calculation for Bernoulli Naive Bayes is based on the Bernoulli distribution:
-   <span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = P(i|y) x_i + (1 - P(i|y))(1 - x_i)</span><script type="math/tex">P(x_i | y) = P(i|y) x_i + (1 - P(i|y))(1 - x_i)</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">P(x_i | y) = P(i|y) x_i + (1 - P(i|y))(1 - x_i)</span><script type="math/tex">P(x_i | y) = P(i|y) x_i + (1 - P(i|y))(1 - x_i)</script></span></script></span></p>
+   <span class="arithmatex">\(<span class="arithmatex">\(P(x_i | y) = P(i|y) x_i + (1 - P(i|y))(1 - x_i)\)</span>\)</span></p>
 <h2 id="follow-up-questions_2">Follow-up questions:</h2>
 <ul>
 <li>
@@ -988,19 +1078,19 @@ nb_classifier<span style="color: #555555">.</span>fit(X, labels)
 <ol>
 <li><strong>Accuracy</strong>: This is a common metric used to measure the overall performance of a classifier and is calculated as the ratio of correctly predicted instances to the total instances.</li>
 </ol>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Accuracy = \frac{True Positives + True Negatives}{Total Predictions}</span><script type="math/tex">Accuracy = \frac{True Positives + True Negatives}{Total Predictions}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Accuracy = \frac{True Positives + True Negatives}{Total Predictions}</span><script type="math/tex">Accuracy = \frac{True Positives + True Negatives}{Total Predictions}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Accuracy = \frac{True Positives + True Negatives}{Total Predictions}\)</span>\)</span></p>
 <ol>
 <li><strong>Precision</strong>: Precision is the ratio of correctly predicted positive observations to the total predicted positives. It measures the classifier's ability not to label a negative sample as positive.</li>
 </ol>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Precision = \frac{True Positives}{True Positives + False Positives}</span><script type="math/tex">Precision = \frac{True Positives}{True Positives + False Positives}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Precision = \frac{True Positives}{True Positives + False Positives}</span><script type="math/tex">Precision = \frac{True Positives}{True Positives + False Positives}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Precision = \frac{True Positives}{True Positives + False Positives}\)</span>\)</span></p>
 <ol>
 <li><strong>Recall (Sensitivity)</strong>: Recall is the ratio of correctly predicted positive observations to the all actual positives. It measures the classifier's ability to find all positive instances.</li>
 </ol>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">Recall = \frac{True Positives}{True Positives + False Negatives}</span><script type="math/tex">Recall = \frac{True Positives}{True Positives + False Negatives}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">Recall = \frac{True Positives}{True Positives + False Negatives}</span><script type="math/tex">Recall = \frac{True Positives}{True Positives + False Negatives}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Recall = \frac{True Positives}{True Positives + False Negatives}\)</span>\)</span></p>
 <ol>
 <li><strong>F1-Score</strong>: The F1-Score is the harmonic mean of precision and recall. It provides a balance between precision and recall.</li>
 </ol>
-<p><span class="arithmatex"><span class="MathJax_Preview"><span class="arithmatex"><span class="MathJax_Preview">F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}</span><script type="math/tex">F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}</script></span></span><script type="math/tex"><span class="arithmatex"><span class="MathJax_Preview">F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}</span><script type="math/tex">F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}</script></span></script></span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(F1-Score = 2 * \frac{Precision * Recall}{Precision + Recall}\)</span>\)</span></p>
 <ol>
 <li><strong>ROC-AUC</strong>: Receiver Operating Characteristic - Area Under the Curve is a performance measurement for classification problems at various threshold settings. It plots the True Positive Rate against the False Positive Rate.</li>
 </ol>
@@ -1050,16 +1140,13 @@ nb_classifier<span style="color: #555555">.</span>fit(X, labels)
 <h3 id="role-of-prior-probability-in-naive-bayes">Role of Prior Probability in Naive Bayes</h3>
 <p>In Naive Bayes classification, prior probability plays a crucial role in determining the likelihood that a given instance belongs to a particular class. Prior probability refers to the initial belief we have about the probability of each class before observing any features of the data. </p>
 <p>The main formula in Naive Bayes is based on Bayes' theorem:</p>
-<div class="arithmatex">
-<div class="MathJax_Preview"> P(y|X) = \frac{P(X|y) * P(y)}{P(X)} </div>
-<script type="math/tex; mode=display"> P(y|X) = \frac{P(X|y) * P(y)}{P(X)} </script>
-</div>
+<div class="arithmatex">\[ P(y|X) = \frac{P(X|y) * P(y)}{P(X)} \]</div>
 <p>where:
-- <span class="arithmatex"><span class="MathJax_Preview">P(y|X)</span><script type="math/tex">P(y|X)</script></span> is the posterior probability of class y given features X
-- <span class="arithmatex"><span class="MathJax_Preview">P(X|y)</span><script type="math/tex">P(X|y)</script></span> is the likelihood of observing features X given class y
-- <span class="arithmatex"><span class="MathJax_Preview">P(y)</span><script type="math/tex">P(y)</script></span> is the prior probability of class y
-- <span class="arithmatex"><span class="MathJax_Preview">P(X)</span><script type="math/tex">P(X)</script></span> is the marginal probability of observing features X</p>
-<p>The role of prior probability <span class="arithmatex"><span class="MathJax_Preview">P(y)</span><script type="math/tex">P(y)</script></span> is to weight the prediction based on our initial belief about the probability of each class. If the prior probabilities are accurate, they help in making more informed predictions. </p>
+- <span class="arithmatex">\(P(y|X)\)</span> is the posterior probability of class y given features X
+- <span class="arithmatex">\(P(X|y)\)</span> is the likelihood of observing features X given class y
+- <span class="arithmatex">\(P(y)\)</span> is the prior probability of class y
+- <span class="arithmatex">\(P(X)\)</span> is the marginal probability of observing features X</p>
+<p>The role of prior probability <span class="arithmatex">\(P(y)\)</span> is to weight the prediction based on our initial belief about the probability of each class. If the prior probabilities are accurate, they help in making more informed predictions. </p>
 <h3 id="follow-up-questions_6">Follow-up Questions:</h3>
 <ul>
 <li>
@@ -1139,14 +1226,14 @@ Estimating prior probabilities in practical applications depends on the availabl
 <li><strong>Gaussian Naive Bayes:</strong> This variant of Naive Bayes assumes that the features follow a normal distribution. It calculates the mean and variance of each feature for each class in the training data and then uses these statistics to make predictions.</li>
 </ul>
 <h4 id="mathematical-formulation">Mathematical Formulation:</h4>
-<p>The class conditional probability for a continuous feature <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> given a class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> can be calculated using the Gaussian probability density function as follows:
-$$ P(x|y) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$</p>
+<p>The class conditional probability for a continuous feature <span class="arithmatex">\(x\)</span> given a class <span class="arithmatex">\(y\)</span> can be calculated using the Gaussian probability density function as follows:
+$$ P(x|y) = \frac{1}{\sqrt{2\pi\sigma^2}} e<sup>{-\frac{(x-\mu)</sup>2}{2\sigma^2}} $$</p>
 <h3 id="handling-categorical-data">Handling Categorical Data:</h3>
 <ul>
 <li><strong>Multinomial Naive Bayes:</strong> This variant is suitable for features that describe discrete frequency counts, such as word counts in text data. It estimates the likelihood of observing each value for each feature given a class based on training data.</li>
 </ul>
 <h4 id="mathematical-formulation_1">Mathematical Formulation:</h4>
-<p>The class conditional probability for a categorical feature <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> given a class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> can be calculated using the relative frequency of <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> in class <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> as follows:
+<p>The class conditional probability for a categorical feature <span class="arithmatex">\(x\)</span> given a class <span class="arithmatex">\(y\)</span> can be calculated using the relative frequency of <span class="arithmatex">\(x\)</span> in class <span class="arithmatex">\(y\)</span> as follows:
 $$ P(x|y) = \frac{N_{x,y} + \alpha}{N_{y} + \alpha \cdot N} $$</p>
 <h3 id="preprocessing-steps">Preprocessing Steps:</h3>
 <ul>
@@ -1222,25 +1309,23 @@ $$ P(x|y) = \frac{N_{x,y} + \alpha}{N_{y} + \alpha \cdot N} $$</p>
 </ul>
 <p>Hybrid models that combine Naive Bayes with other algorithms include:
     - <strong>NB-SVM</strong>: This hybrid model combines Naive Bayes with Support Vector Machines (SVM) to benefit from the high accuracy of SVM while leveraging the probabilistic nature of Naive Bayes.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- **Decision Tree-Naive Bayes Hybrid**: Integrating the simplicity of decision trees with the probabilistic nature of Naive Bayes can lead to robust classification models.
+<div class="language-text highlight"><pre><span></span><code>- **Decision Tree-Naive Bayes Hybrid**: Integrating the simplicity of decision trees with the probabilistic nature of Naive Bayes can lead to robust classification models.
 </code></pre></div>
-
 <ul>
 <li><strong>What are the benefits of combining Naive Bayes with other classifiers?</strong></li>
 </ul>
 <p>Some benefits of combining Naive Bayes with other classifiers include:
     - <strong>Improved Accuracy</strong>: By leveraging the strengths of multiple algorithms, the combined model can achieve higher accuracy than individual models.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- **Robustness**: Combining Naive Bayes with other classifiers can lead to more robust models that are less sensitive to noise in the data.
+<div class="language-text highlight"><pre><span></span><code>- **Robustness**: Combining Naive Bayes with other classifiers can lead to more robust models that are less sensitive to noise in the data.
 
 - **Complementary Learning**: Different algorithms have different weaknesses, and combining Naive Bayes with other classifiers can help overcome these weaknesses by learning complementary patterns in the data.
 </code></pre></div>
-
 <ul>
 <li><strong>How can Naive Bayes be used to improve the performance of other machine learning models?</strong></li>
 </ul>
 <p>Naive Bayes can improve the performance of other machine learning models in the following ways:
     - <strong>Fast Training</strong>: Naive Bayes has a simple and fast training process, making it a good choice for preprocessing data efficiently before feeding it to more complex models.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%;"><span></span><code>- **Handling Missing Values**: Naive Bayes can handle missing values well, which can be beneficial when working with datasets that have incomplete information.
+<div class="language-text highlight"><pre><span></span><code>- **Handling Missing Values**: Naive Bayes can handle missing values well, which can be beneficial when working with datasets that have incomplete information.
 
 - **Interpretability**: The probabilistic nature of Naive Bayes can provide insights into how features contribute to predictions, which can be valuable in understanding model behavior and making improvements.
 </code></pre></div>
@@ -1266,9 +1351,55 @@ $$ P(x|y) = \frac{N_{x,y} + \alpha}{N_{y} + \alpha \cdot N} $$</p>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gradient_boosting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Gradient Boosting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Gradient Boosting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../principal_component_analysis/" class="md-footer__link md-footer__link--next" aria-label="Next: Principal Component Analysis">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Principal Component Analysis
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1278,6 +1409,65 @@ $$ P(x|y) = \frac{N_{x,y} + \alpha}{N_{y} + \alpha \cdot N} $$</p>
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://teach-me-codes.github.io" target="_blank" rel="noopener" title="teach-me-codes.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/TeachMeCodes" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/teachmecodes" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/teach-me-codes" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@teach-me-codes" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
     </a>
   
 </div>
@@ -1292,12 +1482,88 @@ $$ P(x|y) = \frac{N_{x,y} + \alpha}{N_{y} + \alpha \cdot N} $$</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
       
     
   </body>
